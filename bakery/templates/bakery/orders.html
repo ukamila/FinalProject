@@ -1,0 +1,53 @@
+{% extends "bakery/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Orders
+{% endblock %}
+
+{% block body %}
+
+    <div id="orders_page">
+        <h2 class="kind-of-order">Active Orders</h2>
+        {% for order in active_orders %}
+            <div class="orders">
+                <h4 id="orderID" data-orderid="{{ order.id }}">Order ID: {{ order.id }}</h4>
+                <p>Username: {{ order.buyer }}</p>
+                <p>Delivery Location: {{ order.location }}</p>
+                <p style="color: rgb(117, 150, 161);">Ordered on: {{ order.created_on }}</p>
+                <p style="margin-bottom: 0;"> <h5>Items:</h5>
+                    {% for item in order.items.all %}
+                        <img id="orders-image" src="{{ item.product.image }}" alt="img">
+                        <h6 style="margin:0;">{{ item.product.title }}</h6>
+                        <div style="margin:0; font-style: italic;">Quantity: {{ item.quantity }}</div>
+                        <br>
+                    {% endfor %}
+                </p>
+                <button id="complete-order" class="btn btn-outline-primary" style="margin-bottom: 10px;">Complete</button>
+            </div>
+        {% endfor %}
+        <h2 class="kind-of-order" style="margin-top: 20px;">Completed Orders</h2>
+        {% for order in inactive_orders %}
+            <div class="completed_orders">
+                <h4 id="orderID" data-orderid="{{ order.id }}">Order ID: {{ order.id }}</h4>
+                <p>Username: {{ order.buyer }}</p>
+                <p>Delivery Location: {{ order.location }}</p>
+                <p style="color: rgb(117, 150, 161);">Ordered on: {{ order.created_on }}</p>
+                <p style="margin-bottom: 0;"> <h5>Items:</h5>
+                    {% for item in order.items.all %}
+                    <img id="orders-image" src="{{ item.product.image }}" alt="img">
+                    <h6 style="margin:0;">{{ item.product.title }}</h6>
+                    <div style="margin:0; font-style: italic;">Quantity: {{ item.quantity }}</div>
+                    <br>
+                    {% endfor %}
+                </p>
+                <button id="completed" class="btn btn-outline-secondary" style="margin-bottom: 10px;">Completed</button>
+            </div>
+        {% endfor %}
+    </div>
+
+{% block script %}
+    <script src="{% static 'bakery/orders.js' %}"></script>
+{% endblock %}
+
+{% endblock %}

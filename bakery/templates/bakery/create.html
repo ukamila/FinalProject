@@ -1,0 +1,49 @@
+{% extends "bakery/layout.html" %}
+{% load static %}
+
+{% block title %}
+    
+{% endblock %}
+    New Recipe
+{% block body %}
+
+    <div id="create_page">
+        <h2 style="font-family: 'paytone_oneregular'; margin-left: 20px;">Create a new wonderful piece for our menu</h2>
+        <div class="create_form">
+            <form action="{% url 'create' %}" method="post">
+                {% csrf_token %}
+                <p><input type="text" name = title class="form-control" placeholder="Name" required></p>
+                <p><input type="text" name = description class="form-control" placeholder="Description" required></p>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input type="text" class="form-control" name = price aria-label="Amount (to the nearest dollar)" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="categorySelect">Which category does your recipe fit the most?</label>
+                    <select name= category class="form-control" id="categorySelect">
+                        <option>Cakes</option>
+                        <option>Pastries</option>
+                        <option>Cookies</option>
+                        <option>Drinks</option>
+                    </select>
+                </div>
+                <p><input type="text" name = ingredients class="form-control" placeholder="Ingredients" required></p>
+                <p>
+                    <input type="text" name = size class="form-control" placeholder="Size" required>
+                    <small id="titleHelpBlock" class="form-text text-muted">
+                        Please provide size in a whole number, followed by a space and a unit of measurement. 
+                        For example: 7 inch - for cakes; 15 pieces - for cookies; 250 gm - for pastries per piece; 20 oz - for drinks.
+                    </small>
+                </p>
+                <p><textarea class="form-control" type="text" rows = 1 name = image placeholder="Attach Image URL"></textarea></p>
+                <button type="submit" class="btn btn-primary-outline">Save</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

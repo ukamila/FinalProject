@@ -1,0 +1,554 @@
+@font-face {
+    font-family: 'paytone_oneregular';
+    src: url('paytoneone-regular-webfont.woff2') format('woff2'),
+         url('paytoneone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+  }
+
+@media screen and (max-width: 500px) {
+    #home_image {
+        background-size: 100%; 
+        display:block;
+        width: 414px;
+        height: 210px;
+    }
+
+    #order_now {
+        font-size: large;
+        font-family: 'paytone_oneregular';
+        font-weight: bolder;
+        top: 38%;
+        left: 68%;
+        text-align: center;
+        color: rgb(10, 10, 10);
+        vertical-align: middle;
+    }
+
+    #image1 {
+        width: 150px;
+        height: 100px;
+        opacity: 1;
+        display: block;
+        transition: .5s ease;
+        backface-visibility: hidden;
+      }
+
+    .jumbotron-fluid-first {
+        background-color: #dd578f;
+        display: flexbox;
+        margin-bottom: 0;
+        max-width: 100%;
+    }
+    
+    .jumbotron-fluid-second {
+        background-color: rgb(31, 83, 57);
+        display: flex;
+        justify-content: space-between; 
+        margin-bottom:0; 
+    }
+    
+    .jumbotron-fluid-third {
+        background-color: rgb(247, 123, 78);
+        display: flex;
+        justify-content: space-between; 
+        margin-bottom:0;  
+    }
+    
+    .container-bestsellers {
+        color: rgb(88, 3, 67);
+        display: inline-block;
+    }
+
+    .container-hol_special {
+        text-align: right;
+        margin-right: 30px;
+        margin-left: 5px;
+        color: rgb(199, 146, 136);
+        display: inline-block;
+        width: 200px;
+    }
+
+    .container-vegan {
+        color: rgb(146, 43, 5);
+        display: inline-block;
+    }
+    
+    .carousel {
+        height: 125px;
+        width: 180px;
+        text-align: center;
+        display: inline-block;
+    }
+    
+    #image1 {
+        width: 180px;
+        height: 120px;
+        opacity: 1;
+        display: block;
+        transition: .5s ease;
+        backface-visibility: hidden;
+      }
+      
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    
+    .carousel-item:hover #image1 {
+        opacity: 0.3;
+    }
+    
+    .carousel-item:hover .middle {
+        opacity: 1;
+    }
+    
+    .text {
+        background-color: #f1d2a9;
+        color: rgb(116, 51, 7);
+        font-size: 8px;
+        padding: 8px 16px;
+    }
+
+    .membership-sale {
+        background-color: rgb(169, 207, 233); 
+        text-align: center; 
+        margin-bottom: 0;
+    }
+    
+    .membership-sale:hover {
+        background-color: rgb(220, 169, 233); 
+    }
+
+    .non-membership {
+        background-color: rgb(205, 171, 228); 
+        text-align: center; 
+        margin-bottom: 0;
+        font: 15px;
+    }
+    
+    .membership-sale:hover {
+        background-color: rgb(220, 169, 233); 
+    }
+
+    .menu {
+        text-align: center;
+        margin: 5px;
+        font-family: Garnett Regular;
+    }
+    
+    .products-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .product {
+        flex-grow: 1;
+        width: 33%;
+        margin-right: 5px;
+        text-align: center;
+    }
+    
+    .cake-photo {
+        height: 90px;
+        width: 120px;
+    }
+    
+    .create_form {
+        margin: 5px;
+    }
+    
+    #product-image {
+        height: 180px;
+        width: 245px;
+        top: 19%;
+        margin-left: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .product-info {
+        text-align: left; 
+        margin: 10px; 
+        width: 400px;
+    }
+    
+    .action-row {
+        align-items: center;
+    }
+    
+    #quantity {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: Garnett Bold;
+        letter-spacing: 1.5px;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 0;
+        text-align: center;
+        color: #4e0b2c;
+        font-weight: 700;
+        width: 35px;
+        padding: 0;
+    }
+
+    #checkout-form {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .myorder-object {
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+    
+    #myorder-image {
+        height: 150px;
+        width: 215px;
+    }
+    
+    .orders {
+        margin: 15px;
+        padding: 5px;
+        border: 1px solid rgb(226, 182, 255);
+        border-radius: 2%;
+    }
+    
+    .completed_orders {
+        margin: 15px;
+        padding: 5px;
+        border: 1px solid rgb(226, 182, 255);
+        border-radius: 2%;
+        background-color: rgba(226, 239, 255, 0.712);
+    }
+    
+    #orders-image {
+        height: 125px;
+        width: 165px;
+    }
+
+    #beforeyoucheckout {
+        margin-left: 10px;
+    }
+
+    #back-to-order {
+        margin-left: 20px;
+    }
+
+    .kind-of-order {
+        margin:10px;
+    }
+
+    #delivery_page {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #391a5c;
+        margin: 5px;
+        margin-left: 10px;
+    }
+
+    #delivery-image {
+        width: 280px;
+        height: 170px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+    }
+
+    .about-info {
+        margin: 20px;
+        font: 15px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .about-ps {
+        font: 6px;
+        color: #f1d2a954;
+        margin-left: 26px;
+    }
+
+    .about-ps:hover {
+        color: rgb(250, 197, 98);
+    }
+}
+ 
+
+@media screen and (min-width: 500px) {
+    .body {
+        margin-top: 0px;
+        display: flexbox;
+    }
+    
+    #home_image {
+        background-size: 1250px; 
+        height: 635px;
+    }
+
+    #order_now {
+        font-size: xx-large;
+        font-family: 'paytone_oneregular';
+        font-weight: bolder;
+        position: absolute;
+        top: 25%;
+        left: 68%;
+        text-align: center;
+        color: rgb(26, 43, 97);
+        vertical-align: middle;
+    }
+    
+    .jumbotron-fluid-first {
+        background-color: #dd578f;
+        display: flex;
+        justify-content: space-between;  
+        margin-bottom: 0;
+    }
+    
+    .jumbotron-fluid-second {
+        background-color: rgb(31, 83, 57);
+        display: flex;
+        justify-content: space-between; 
+        margin-bottom:0; 
+    }
+    
+    .jumbotron-fluid-third {
+        background-color: rgb(247, 123, 78);
+        display: flex;
+        justify-content: space-between; 
+        margin-bottom:0;  
+    }
+    
+    .container-bestsellers {
+        color: rgb(88, 3, 67);
+        display: inline-block;
+    }
+    
+    .container-hol_special {
+        text-align: right;
+        margin-right: 40px;
+        color: rgb(199, 146, 136);
+        display: inline-block;
+        width: 400px;
+    }
+    
+    .container-vegan {
+        color: rgb(146, 43, 5);
+        display: inline-block;
+    }
+    
+    .carousel {
+        height: 300px;
+        width: 430px;
+        text-align: center;
+        display: inline-block;
+    }
+    
+    #image1 {
+        width: 450px;
+        height: 320px;
+        opacity: 1;
+        display: block;
+        transition: .5s ease;
+        backface-visibility: hidden;
+      }
+      
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 75%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    
+    .carousel-item:hover #image1 {
+        opacity: 0.3;
+    }
+    
+    .carousel-item:hover .middle {
+        opacity: 1;
+    }
+    
+    .text {
+        background-color: #f1d2a9;
+        color: rgb(116, 51, 7);
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+    
+    
+    .carousel1 {
+        object-position: right;
+    }
+    
+    .carousel2 {
+        object-position: left;
+    }
+    
+    .carousel3 {
+        object-position: right;
+    }
+    
+    .membership-sale {
+        background-color: rgb(169, 207, 233); 
+        text-align: center; 
+        margin-bottom: 0;
+    }
+    
+    .membership-sale:hover {
+        background-color: rgb(220, 169, 233); 
+    }
+
+    .non-membership {
+        background-color: rgb(185, 150, 218); 
+        text-align: center; 
+        margin-bottom: 0;
+    }
+    
+    .menu {
+        text-align: center;
+        margin: 30px;
+        font-family: Garnett Regular;
+    }
+    
+    .products-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .product {
+        flex-grow: 1;
+        width: 33%;
+        margin-right: 25px;
+        text-align: center;
+    }
+    
+    .cake-photo {
+        height: 145px;
+        width: 205px;
+    }
+    
+    .create_form {
+        margin: 15px;
+    }
+    
+    #product-image {
+        height: 250px;
+        width: 315px;
+        position: absolute;
+        top: 19%;
+        margin-left: 75px;
+    }
+    
+    .product-info {
+        text-align: right; 
+        margin: 50px; 
+        left: 40%;
+        width: 650px;
+        position: absolute;
+    }
+    
+    .action-row {
+        align-items: center;
+    }
+    
+    #quantity {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: Garnett Bold;
+        letter-spacing: 1.5px;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 0;
+        text-align: center;
+        color: #4e0b2c;
+        font-weight: 700;
+        width: 35px;
+        padding: 0;
+    }
+    
+    #checkout-form {
+        margin-left: 20px;
+    }
+    
+    .myorder-object {
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+    
+    #myorder-image {
+        height: 300px;
+        width: 415px;
+    }
+
+    #back-to-order {
+        margin-left: 100px;
+    }
+    
+    .orders {
+        margin: 15px;
+        padding: 5px;
+        border: 1px solid rgb(226, 182, 255);
+        border-radius: 2%;
+    }
+    
+    .completed_orders {
+        margin: 15px;
+        padding: 5px;
+        border: 1px solid rgb(226, 182, 255);
+        border-radius: 2%;
+        background-color: rgba(226, 239, 255, 0.712);
+    }
+    
+    #orders-image {
+        height: 125px;
+        width: 165px;
+    }
+    
+    .kind-of-order {
+        margin:15px;
+    }
+
+    #delivery_page {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #391a5c;
+        margin: 15px;
+    }
+
+    #delivery-image {
+        width: 680px;
+        height: 450px;
+        margin-top: 12px;
+        margin-bottom: 17px;
+    }
+
+    .about-info {
+        margin: 20px;
+        margin-left: 15px;
+        font: 35px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .about-ps {
+        font: 20px;
+        margin-left: 23px;
+        color: rgba(243, 225, 201, 0.61);
+    }
+
+    .about-ps:hover {
+        color: rgb(250, 197, 98);
+    }
+}
+

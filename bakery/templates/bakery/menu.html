@@ -1,0 +1,66 @@
+{% extends "bakery/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Menu
+{% endblock %}
+
+{% block body %}
+
+    <div id="menu-container">
+        <h1 class="menu" style="margin-bottom: 20px;">Menu</h1>
+        <div class="menu" id="cakesmenu">
+            <a id="cakes-section" data-hs-anchor="true"><h2>Cakes</h2></a>
+            <section class="products-grid" data-cells-per-row="3">
+                {% for cake in cakes %}
+                {% csrf_token %}
+                <div class="product">
+                    <img class="cake-photo" src="{{ cake.image }}" alt="cake">
+                    <h3><a style="color:rgba(32, 32, 32, 0.774);" href="{% url 'product' cake.id %}">{{ cake.title }}</a></h3>
+                    <p>{{ cake.price }} $</p>
+                </div>
+                {% endfor %}
+            </section>
+        </div>
+        <div class="menu" id="pastriesmenu">
+            <a id="pastries-section" data-hs-anchor="true"><h2>Pastries</h2></a>
+            <section class="products-grid" data-cells-per-row="3">
+                {% for pastry in pastries %}
+                {% csrf_token %}
+                <div class="product">
+                    <img class="cake-photo" src="{{ pastry.image }}" alt="pastry">
+                    <h3><a style="color:rgba(32, 32, 32, 0.774);" href="{% url 'product' pastry.id %}">{{ pastry.title }}</a></h3>
+                    <p>{{ pastry.price }} $</p>
+                </div>
+                {% endfor %}
+            </section>
+        </div>
+        <div class="menu" id="cookiesmenu">
+            <a id="cookies-section" data-hs-anchor="true"><h2>Cookies</h2></a>
+            <section class="products-grid" data-cells-per-row="3">
+                {% for cookie in cookies %}
+                {% csrf_token %}
+                <div class="product">
+                    <img class="cake-photo" src="{{ cookie.image }}" alt="cookie">
+                    <h3><a style="color:rgba(32, 32, 32, 0.774);" href="{% url 'product' cookie.id %}">{{ cookie.title }}</a></h3>
+                    <p>{{ cookie.price }} $</p>
+                </div>
+                {% endfor %}
+            </section>
+        </div>
+        <div class="menu" id="drinksmenu">
+            <a id="drinks-section" data-hs-anchor="true"><h2>Drinks</h2></a>
+            <section class="products-grid" data-cells-per-row="3">
+                {% for drink in drinks %}
+                {% csrf_token %}
+                <div class="product">
+                    <img class="cake-photo" src="{{ drink.image }}" alt="drink">
+                    <h3><a style="color:rgba(32, 32, 32, 0.774);" href="{% url 'product' drink.id %}">{{ drink.title }}</a></h3>
+                    <p>{{ drink.price }} $</p>
+                </div>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
+
+{% endblock %}

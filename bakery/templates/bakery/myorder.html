@@ -1,0 +1,87 @@
+{% extends "bakery/layout.html" %}
+{% load static %}
+
+{% block title %}
+    My Order
+{% endblock %}
+
+{% block body %}
+
+    <div id="checkout">
+        
+        <h2 id="beforeyoucheckout">Before you check out, please fill in the delivery information.<button id="back-to-order" class="btn btn-sm btn-outline-info" >Back to Order</button></h2>
+        <form id="checkout-form">
+            {% csrf_token %}
+            <p>Name: <span id="order-buyer" data-userid="{{ request.user.id }}">{{ request.user.username }}</span></p>
+            <p>Address: 
+                <input class="form-control" id="order-address">
+                <small id="titleHelpBlock" class="form-text text-muted">
+                    Please write your address in a following format -> 123 Main St, CA, 50912
+                </small>
+            </p>
+            <p>Your Order: </p>
+            <div id="items-for-checkout" style="display: none;">{{ products }}</div>
+            <div>
+                {% csrf_token %}
+                {% for product in products %}
+                <div class="myorder-object">
+                    <img id="myorder-image" src="{{ product.product.image }}" alt="img">
+                    <div class="myorder_info">
+                        <h4>{{ product.product.title }}</h4>
+                        <p>{{ product.price }} $ for {{ product.quantity }} items of size: {{product.product.size}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <h4>Total to Pay: 
+                <span id="total-price"></span>
+            </h4>
+            <small id="titleHelpBlock" class="form-text text-muted">
+                We currently only accept payments in person, you will have a chance to pay our delivery worker by card or venmo them.
+            </small>
+            <p style="margin-top: 20px;">
+                <button type="submit" class="btn btn-lg">Checkout</button>
+            </p>
+        </form>
+    </div>
+
+    <div id="my_order">
+        {% if products %}
+        <h3 style="margin-left: 25px;">Your shopping bag</h3>
+        {% endif %}
+        <div>
+        {% csrf_token %}
+            {% for product in products %}
+            <div class="myorder-object">
+                <img id="myorder-image" src="{{ product.product.image }}" alt="img">
+                <div class="myorder_info">
+                    <h4>{{ product.product.title }}</h4>
+                    <div style="display: none;" id="price-per-one">{{ product.price }}</div>
+                    {% if product.quantity > 1 %}
+                    <p>{{ product.price }} $ for {{ product.quantity }} items of size: {{product.product.size}}</p>
+                    {% else %}
+                    <p>{{ product.price }} $ for {{ product.quantity }} item of size: {{product.product.size}}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <h3 style="text-align: center;">Your shopping cart is empty.</h4>
+            {% endfor %}
+        </div>
+        {% if products %}
+        <button id="checkout-button" style="object-position: right; margin:15px;" class="btn btn-outline-black">Proceed to Checkout</button>
+        {% else %}
+        <button id="checkout-button" style="object-position: right; margin:15px; display: none;" class="btn btn-outline-black">Proceed to Checkout</button>
+        {% endif %}
+    </div>
+
+    <div id="final_checkout" style="text-align: center;">
+        <h2>Your order details were sent to your email!</h2>
+        <h4>Thank you for ordering our desserts!</h4>
+    </div>
+
+{% block script %}
+    <script src="{% static 'bakery/myorder.js' %}"></script>
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name = "HandheldFriendly" content="true">
+        <title>{% block title %}{% endblock %}</title>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="{% static 'bakery/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-fixed-top">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'bakery/cakeicon.png' %}" width="45" height="45" class="d-inline-block align-top" alt="">
+                Bakery
+            </a>
+          
+            <div >
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/menu#pastries-section">Pastries</a>
+                        <a class="dropdown-item" href="/menu#cakes-section">Cakes</a>
+                        <a class="dropdown-item" href="/menu#cookies-section">Cookies</a>
+                        <a class="dropdown-item" href="/menu#drinks-section">Drinks</a>
+                        <a class="dropdown-item" href="{% url 'menu' %}">Full Menu</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'delivery' %}">Delivery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'myorder' %}">Shopping Bag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                    {% if user.authority == "STAFF" %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create' %}">Add a new item</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'orders' %}">Orders</a>
+                        </li>
+                    {% endif %}
+
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                {% endif %}
+              </ul>
+            </div>
+        </nav>
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
