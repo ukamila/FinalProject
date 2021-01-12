@@ -92,7 +92,7 @@ This is a page where a Guest User can register.
 
 All of the photos shown on the homepage are stored here.
 
-There are also 
+There are also these two following files:
 
 ### JavaScript Files
 
